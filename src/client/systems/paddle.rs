@@ -20,7 +20,7 @@ impl<'s> System<'s> for PaddleSystem {
         for (paddle, transform) in (&paddles, &mut transforms).join() {
             let movement = match paddle.side {
                 Side::Left => input.axis_value("left_paddle"),
-                Side::Right => input.axis_value("right_paddle"),
+                _ => continue,
             };
             if let Some(mv_amount) = movement {
                 let scaled_amount = 1.2 * mv_amount as f32;
@@ -30,14 +30,6 @@ impl<'s> System<'s> for PaddleSystem {
                         .min(ARENA_HEIGHT - PADDLE_HEIGHT * 0.5)
                         .max(PADDLE_HEIGHT * 0.5),
                 );
-
-                if mv_amount != 0.0 {
-                    let side_name = match paddle.side {
-                        Side::Left => "left",
-                        Side::Right => "right",
-                    };
-                    println!("Side {:?} moving {}", side_name, mv_amount);
-                }
             }
         }
     }

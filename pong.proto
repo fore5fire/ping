@@ -8,8 +8,13 @@ service Say {
 
 message SayRequest {
     string name = 1;
+    float networkname = 2;
+    float networkname2 = 3;
+    float networkname3 = 4;
 }
 
 message SayResponse {
-    string message = 1;
+    float message = 1;
+    float message2 = 2;
+    float message3 = 3;
 }

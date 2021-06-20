@@ -27,6 +27,9 @@
 pub struct SayRequest {
     // message fields
     pub name: ::std::string::String,
+    pub networkname: f32,
+    pub networkname2: f32,
+    pub networkname3: f32,
     // special fields
     pub unknown_fields: ::protobuf::UnknownFields,
     pub cached_size: ::protobuf::CachedSize,
@@ -68,6 +71,51 @@ impl SayRequest {
     pub fn take_name(&mut self) -> ::std::string::String {
         ::std::mem::replace(&mut self.name, ::std::string::String::new())
     }
+
+    // float networkname = 2;
+
+
+    pub fn get_networkname(&self) -> f32 {
+        self.networkname
+    }
+    pub fn clear_networkname(&mut self) {
+        self.networkname = 0.;
+    }
+
+    // Param is passed by value, moved
+    pub fn set_networkname(&mut self, v: f32) {
+        self.networkname = v;
+    }
+
+    // float networkname2 = 3;
+
+
+    pub fn get_networkname2(&self) -> f32 {
+        self.networkname2
+    }
+    pub fn clear_networkname2(&mut self) {
+        self.networkname2 = 0.;
+    }
+
+    // Param is passed by value, moved
+    pub fn set_networkname2(&mut self, v: f32) {
+        self.networkname2 = v;
+    }
+
+    // float networkname3 = 4;
+
+
+    pub fn get_networkname3(&self) -> f32 {
+        self.networkname3
+    }
+    pub fn clear_networkname3(&mut self) {
+        self.networkname3 = 0.;
+    }
+
+    // Param is passed by value, moved
+    pub fn set_networkname3(&mut self, v: f32) {
+        self.networkname3 = v;
+    }
 }
 
 impl ::protobuf::Message for SayRequest {
@@ -81,6 +129,27 @@ impl ::protobuf::Message for SayRequest {
             match field_number {
                 1 => {
                     ::protobuf::rt::read_singular_proto3_string_into(wire_type, is, &mut self.name)?;
+                },
+                2 => {
+                    if wire_type != ::protobuf::wire_format::WireTypeFixed32 {
+                        return ::std::result::Result::Err(::protobuf::rt::unexpected_wire_type(wire_type));
+                    }
+                    let tmp = is.read_float()?;
+                    self.networkname = tmp;
+                },
+                3 => {
+                    if wire_type != ::protobuf::wire_format::WireTypeFixed32 {
+                        return ::std::result::Result::Err(::protobuf::rt::unexpected_wire_type(wire_type));
+                    }
+                    let tmp = is.read_float()?;
+                    self.networkname2 = tmp;
+                },
+                4 => {
+                    if wire_type != ::protobuf::wire_format::WireTypeFixed32 {
+                        return ::std::result::Result::Err(::protobuf::rt::unexpected_wire_type(wire_type));
+                    }
+                    let tmp = is.read_float()?;
+                    self.networkname3 = tmp;
                 },
                 _ => {
                     ::protobuf::rt::read_unknown_or_skip_group(field_number, wire_type, is, self.mut_unknown_fields())?;
@@ -97,6 +166,15 @@ impl ::protobuf::Message for SayRequest {
         if !self.name.is_empty() {
             my_size += ::protobuf::rt::string_size(1, &self.name);
         }
+        if self.networkname != 0. {
+            my_size += 5;
+        }
+        if self.networkname2 != 0. {
+            my_size += 5;
+        }
+        if self.networkname3 != 0. {
+            my_size += 5;
+        }
         my_size += ::protobuf::rt::unknown_fields_size(self.get_unknown_fields());
         self.cached_size.set(my_size);
         my_size
@@ -105,6 +183,15 @@ impl ::protobuf::Message for SayRequest {
     fn write_to_with_cached_sizes(&self, os: &mut ::protobuf::CodedOutputStream<'_>) -> ::protobuf::ProtobufResult<()> {
         if !self.name.is_empty() {
             os.write_string(1, &self.name)?;
+        }
+        if self.networkname != 0. {
+            os.write_float(2, self.networkname)?;
+        }
+        if self.networkname2 != 0. {
+            os.write_float(3, self.networkname2)?;
+        }
+        if self.networkname3 != 0. {
+            os.write_float(4, self.networkname3)?;
         }
         os.write_unknown_fields(self.get_unknown_fields())?;
         ::std::result::Result::Ok(())
@@ -149,6 +236,21 @@ impl ::protobuf::Message for SayRequest {
                 |m: &SayRequest| { &m.name },
                 |m: &mut SayRequest| { &mut m.name },
             ));
+            fields.push(::protobuf::reflect::accessor::make_simple_field_accessor::<_, ::protobuf::types::ProtobufTypeFloat>(
+                "networkname",
+                |m: &SayRequest| { &m.networkname },
+                |m: &mut SayRequest| { &mut m.networkname },
+            ));
+            fields.push(::protobuf::reflect::accessor::make_simple_field_accessor::<_, ::protobuf::types::ProtobufTypeFloat>(
+                "networkname2",
+                |m: &SayRequest| { &m.networkname2 },
+                |m: &mut SayRequest| { &mut m.networkname2 },
+            ));
+            fields.push(::protobuf::reflect::accessor::make_simple_field_accessor::<_, ::protobuf::types::ProtobufTypeFloat>(
+                "networkname3",
+                |m: &SayRequest| { &m.networkname3 },
+                |m: &mut SayRequest| { &mut m.networkname3 },
+            ));
             ::protobuf::reflect::MessageDescriptor::new_pb_name::<SayRequest>(
                 "SayRequest",
                 fields,
@@ -166,6 +268,9 @@ impl ::protobuf::Message for SayRequest {
 impl ::protobuf::Clear for SayRequest {
     fn clear(&mut self) {
         self.name.clear();
+        self.networkname = 0.;
+        self.networkname2 = 0.;
+        self.networkname3 = 0.;
         self.unknown_fields.clear();
     }
 }
@@ -185,7 +290,9 @@ impl ::protobuf::reflect::ProtobufValue for SayRequest {
 #[derive(PartialEq,Clone,Default)]
 pub struct SayResponse {
     // message fields
-    pub message: ::std::string::String,
+    pub message: f32,
+    pub message2: f32,
+    pub message3: f32,
     // special fields
     pub unknown_fields: ::protobuf::UnknownFields,
     pub cached_size: ::protobuf::CachedSize,
@@ -202,30 +309,49 @@ impl SayResponse {
         ::std::default::Default::default()
     }
 
-    // string message = 1;
+    // float message = 1;
 
 
-    pub fn get_message(&self) -> &str {
-        &self.message
+    pub fn get_message(&self) -> f32 {
+        self.message
     }
     pub fn clear_message(&mut self) {
-        self.message.clear();
+        self.message = 0.;
     }
 
     // Param is passed by value, moved
-    pub fn set_message(&mut self, v: ::std::string::String) {
+    pub fn set_message(&mut self, v: f32) {
         self.message = v;
     }
 
-    // Mutable pointer to the field.
-    // If field is not initialized, it is initialized with default value first.
-    pub fn mut_message(&mut self) -> &mut ::std::string::String {
-        &mut self.message
+    // float message2 = 2;
+
+
+    pub fn get_message2(&self) -> f32 {
+        self.message2
+    }
+    pub fn clear_message2(&mut self) {
+        self.message2 = 0.;
     }
 
-    // Take field
-    pub fn take_message(&mut self) -> ::std::string::String {
-        ::std::mem::replace(&mut self.message, ::std::string::String::new())
+    // Param is passed by value, moved
+    pub fn set_message2(&mut self, v: f32) {
+        self.message2 = v;
+    }
+
+    // float message3 = 3;
+
+
+    pub fn get_message3(&self) -> f32 {
+        self.message3
+    }
+    pub fn clear_message3(&mut self) {
+        self.message3 = 0.;
+    }
+
+    // Param is passed by value, moved
+    pub fn set_message3(&mut self, v: f32) {
+        self.message3 = v;
     }
 }
 
@@ -239,7 +365,25 @@ impl ::protobuf::Message for SayResponse {
             let (field_number, wire_type) = is.read_tag_unpack()?;
             match field_number {
                 1 => {
-                    ::protobuf::rt::read_singular_proto3_string_into(wire_type, is, &mut self.message)?;
+                    if wire_type != ::protobuf::wire_format::WireTypeFixed32 {
+                        return ::std::result::Result::Err(::protobuf::rt::unexpected_wire_type(wire_type));
+                    }
+                    let tmp = is.read_float()?;
+                    self.message = tmp;
+                },
+                2 => {
+                    if wire_type != ::protobuf::wire_format::WireTypeFixed32 {
+                        return ::std::result::Result::Err(::protobuf::rt::unexpected_wire_type(wire_type));
+                    }
+                    let tmp = is.read_float()?;
+                    self.message2 = tmp;
+                },
+                3 => {
+                    if wire_type != ::protobuf::wire_format::WireTypeFixed32 {
+                        return ::std::result::Result::Err(::protobuf::rt::unexpected_wire_type(wire_type));
+                    }
+                    let tmp = is.read_float()?;
+                    self.message3 = tmp;
                 },
                 _ => {
                     ::protobuf::rt::read_unknown_or_skip_group(field_number, wire_type, is, self.mut_unknown_fields())?;
@@ -253,8 +397,14 @@ impl ::protobuf::Message for SayResponse {
     #[allow(unused_variables)]
     fn compute_size(&self) -> u32 {
         let mut my_size = 0;
-        if !self.message.is_empty() {
-            my_size += ::protobuf::rt::string_size(1, &self.message);
+        if self.message != 0. {
+            my_size += 5;
+        }
+        if self.message2 != 0. {
+            my_size += 5;
+        }
+        if self.message3 != 0. {
+            my_size += 5;
         }
         my_size += ::protobuf::rt::unknown_fields_size(self.get_unknown_fields());
         self.cached_size.set(my_size);
@@ -262,8 +412,14 @@ impl ::protobuf::Message for SayResponse {
     }
 
     fn write_to_with_cached_sizes(&self, os: &mut ::protobuf::CodedOutputStream<'_>) -> ::protobuf::ProtobufResult<()> {
-        if !self.message.is_empty() {
-            os.write_string(1, &self.message)?;
+        if self.message != 0. {
+            os.write_float(1, self.message)?;
+        }
+        if self.message2 != 0. {
+            os.write_float(2, self.message2)?;
+        }
+        if self.message3 != 0. {
+            os.write_float(3, self.message3)?;
         }
         os.write_unknown_fields(self.get_unknown_fields())?;
         ::std::result::Result::Ok(())
@@ -303,10 +459,20 @@ impl ::protobuf::Message for SayResponse {
         static descriptor: ::protobuf::rt::LazyV2<::protobuf::reflect::MessageDescriptor> = ::protobuf::rt::LazyV2::INIT;
         descriptor.get(|| {
             let mut fields = ::std::vec::Vec::new();
-            fields.push(::protobuf::reflect::accessor::make_simple_field_accessor::<_, ::protobuf::types::ProtobufTypeString>(
+            fields.push(::protobuf::reflect::accessor::make_simple_field_accessor::<_, ::protobuf::types::ProtobufTypeFloat>(
                 "message",
                 |m: &SayResponse| { &m.message },
                 |m: &mut SayResponse| { &mut m.message },
+            ));
+            fields.push(::protobuf::reflect::accessor::make_simple_field_accessor::<_, ::protobuf::types::ProtobufTypeFloat>(
+                "message2",
+                |m: &SayResponse| { &m.message2 },
+                |m: &mut SayResponse| { &mut m.message2 },
+            ));
+            fields.push(::protobuf::reflect::accessor::make_simple_field_accessor::<_, ::protobuf::types::ProtobufTypeFloat>(
+                "message3",
+                |m: &SayResponse| { &m.message3 },
+                |m: &mut SayResponse| { &mut m.message3 },
             ));
             ::protobuf::reflect::MessageDescriptor::new_pb_name::<SayResponse>(
                 "SayResponse",
@@ -324,7 +490,9 @@ impl ::protobuf::Message for SayResponse {
 
 impl ::protobuf::Clear for SayResponse {
     fn clear(&mut self) {
-        self.message.clear();
+        self.message = 0.;
+        self.message2 = 0.;
+        self.message3 = 0.;
         self.unknown_fields.clear();
     }
 }
@@ -342,10 +510,14 @@ impl ::protobuf::reflect::ProtobufValue for SayResponse {
 }
 
 static file_descriptor_proto_data: &'static [u8] = b"\
-    \n\npong.proto\x12\x04pong\"\x20\n\nSayRequest\x12\x12\n\x04name\x18\x01\
-    \x20\x01(\tR\x04name\"'\n\x0bSayResponse\x12\x18\n\x07message\x18\x01\
-    \x20\x01(\tR\x07message22\n\x03Say\x12+\n\x04Send\x12\x10.pong.SayReques\
-    t\x1a\x11.pong.SayResponseb\x06proto3\
+    \n\npong.proto\x12\x04pong\"\x8a\x01\n\nSayRequest\x12\x12\n\x04name\x18\
+    \x01\x20\x01(\tR\x04name\x12\x20\n\x0bnetworkname\x18\x02\x20\x01(\x02R\
+    \x0bnetworkname\x12\"\n\x0cnetworkname2\x18\x03\x20\x01(\x02R\x0cnetwork\
+    name2\x12\"\n\x0cnetworkname3\x18\x04\x20\x01(\x02R\x0cnetworkname3\"_\n\
+    \x0bSayResponse\x12\x18\n\x07message\x18\x01\x20\x01(\x02R\x07message\
+    \x12\x1a\n\x08message2\x18\x02\x20\x01(\x02R\x08message2\x12\x1a\n\x08me\
+    ssage3\x18\x03\x20\x01(\x02R\x08message322\n\x03Say\x12+\n\x04Send\x12\
+    \x10.pong.SayRequest\x1a\x11.pong.SayResponseb\x06proto3\
 ";
 
 static file_descriptor_proto_lazy: ::protobuf::rt::LazyV2<::protobuf::descriptor::FileDescriptorProto> = ::protobuf::rt::LazyV2::INIT;

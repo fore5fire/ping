@@ -3016,6 +3016,7 @@ name = "ping"
 version = "0.1.0"
 dependencies = [
  "amethyst",
+ "futures",
  "grpc",
  "grpc-protobuf",
  "httpbis 0.10.0-pre",
