@@ -34,11 +34,11 @@ impl<'s> System<'s> for NetworkPaddleSystem {
     fn run(&mut self, (mut transforms, paddles, mut balls): Self::SystemData) {
 		let left = (&paddles, &transforms).join().filter(|(p, _)| p.side == Side::Left).next().unwrap();
 
-		let name = "l";
+		let name = "k";
 		let port = 50051;
 		let client_conf = Default::default();
 		// create a client
-		let client = SayClient::new_plain("::1", port, client_conf).unwrap();
+		let client = SayClient::new_plain("192.168.1.189", port, client_conf).unwrap();
 		// create request
 		let mut req = SayRequest::new();
 		req.set_name(name.to_string());

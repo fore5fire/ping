@@ -15,8 +15,8 @@ pub const PADDLE_WIDTH: f32 = 4.0;
 pub const ARENA_HEIGHT: f32 = 100.0;
 pub const ARENA_WIDTH: f32 = 100.0;
 
-pub const BALL_VELOCITY_X: f32 = 10.0;
-pub const BALL_VELOCITY_Y: f32 = 10.0;
+pub const BALL_VELOCITY_X: f32 = 50.0;
+pub const BALL_VELOCITY_Y: f32 = 50.0;
 pub const BALL_RADIUS: f32 = 2.0;
 
 #[derive(PartialEq, Eq)]
